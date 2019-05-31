@@ -15,21 +15,21 @@ def main():
     if '.csv' not in program_arguments[0]:
         sys.exit('Provide a valid csv file.')
 
-    FileReaderObject = FileReader(program_arguments[0])
-    data = FileReaderObject.get_file_data()
+    file_reader_object = FileReader(program_arguments[0])
+    data = file_reader_object.get_file_data()
 
     if len(program_arguments) == 2:
-        CapTableInformationObject = CapTableInformation(data)
-        CapTableInformationJson = \
-            CapTableInformationObject.get_captable_information(program_arguments[1])
+        cap_table_information_object = CapTableInformation(data)
+        cap_table_information_json = \
+            cap_table_information_object.get_captable_information(program_arguments[1])
     elif len(program_arguments) > 2:
         sys.exit('Invalid arguments provided to the program.')
     else:
-        CapTableInformationObject = CapTableInformation(data)
-        CapTableInformationJson = \
-            CapTableInformationObject.get_captable_information()
+        cap_table_information_object = CapTableInformation(data)
+        cap_table_information_json = \
+            cap_table_information_object.get_captable_information()
 
-    print CapTableInformationJson
+    print cap_table_information_json
 
 
 if __name__ == '__main__':
