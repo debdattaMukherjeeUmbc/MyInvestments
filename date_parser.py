@@ -3,7 +3,9 @@
 import datetime
 import sys
 
-
+"""
+Parses a date from a string to a datetime object.
+"""
 def date_parser(date_str):
 
     try:

@@ -15,6 +15,13 @@ class CapTableInformation(object):
         self.investors_information = [InvestorInformation(i) for i in
                 data[1:]]
 
+    
+    """
+    Returns the captable information as json and also excepts an optional parameter
+    of date. If a date argument is provided, the summary cap table is computed using 
+    investments made on or before the specified date.  If no date is given, the cap table 
+    is calculated as of today.
+    """
     def get_captable_information(self, start_date=None):
 
         current_date = datetime.datetime.now()
@@ -38,6 +45,10 @@ class CapTableInformation(object):
 
         return json.dumps(captable_information)
 
+
+    """
+    Returns the cash paid and total number of shares for the investors.
+    """
     def _get_cash_raised_total_share(self, relevant_investors_info):
 
         cash_paid = 0
@@ -48,6 +59,10 @@ class CapTableInformation(object):
             total_number_of_shares += investor_information.get('shares')
         return (cash_paid, total_number_of_shares)
 
+
+    """
+    Excepts the relevant investors information and total number of shares and computes the ownership information.
+    """
     def _ownership_information(self, relevant_investors_info,
                                total_number_of_shares):
 
@@ -66,6 +81,10 @@ class CapTableInformation(object):
             ownership_information.append(investor_dict)
         return ownership_information
 
+
+    """
+    Returns the merged(processed) relevant investors for the required time duration.
+    """
     def _get_relevant_investors(self, start_date, current_date):
 
         investors_within_timeframe = \
@@ -75,6 +94,12 @@ class CapTableInformation(object):
             self._get_merged_investors_information(investors_within_timeframe)
         return relevant_investors
 
+
+    """
+    Curates the investments of the investors within the desired time range. If the start date is 
+    supplied, it would consider all entries made on or before the specified date; else it
+    will consider all entries till current date.
+    """
     def _get_investors_within_timeframe(self, start_date, current_date):
 
         investors_within_timeframe = []
@@ -90,6 +115,10 @@ class CapTableInformation(object):
                 investors_within_timeframe.append(investor)
         return investors_within_timeframe
 
+    
+    """
+    Merges different entries for the same investors as a single record.
+    """
     def _get_merged_investors_information(self,
             investors_within_timeframe):
 

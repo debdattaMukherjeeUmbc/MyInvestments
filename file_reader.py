@@ -3,7 +3,10 @@
 import csv
 import sys
 
-
+"""
+Reads the input file csv and returns the data if it was successful in reading the file.
+If there is an exception, it would print a user friendly message.
+"""
 class FileReader(object):
 
     def __init__(self, input_file):
