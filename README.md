@@ -14,11 +14,11 @@ These instructions will get you a copy of the project up and running on your loc
 	Have Python 2.7.10 installed in your machine.
 
 	Running the project
-	In you python terminal run the captable_info.py file. 
+	In you python terminal run the investment.py file. 
         It takes in the cvs file as input, so you can run the following: 
-        python captable_info.py input.csv
+        python investment.py input.csv
         If you want to pass in an optional param of date, then run the following:
-        python captable_info.py input.csv 2017-11-14
+        python investment.py input.csv 2017-11-14
         Running the above commands produces the json response in the terminal.
 
 Further work which is in progress:
