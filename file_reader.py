@@ -1,3 +1,5 @@
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
 import csv
 import sys
 
@@ -11,7 +13,6 @@ class FileReader(object):
 
         self.input_file = input_file
 
-
     def get_file_data(self):
 
         try:
@@ -19,4 +20,3 @@ class FileReader(object):
             return data
         except IOError:
             sys.exit('Could not read file.')
-
